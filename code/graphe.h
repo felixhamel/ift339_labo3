@@ -81,7 +81,7 @@ class graphe
      * @param  fin   Position de fin de la recherche
      * @return int   Numero du noeud trouvé. Si introuvé, retourne le nombre de noeud dans ce graphe.
      */
-    const uint32_t trouver_noeud_avec_nom(string& nom, unsigned long int debut, unsigned long int fin);
+    const uint32_t trouver_noeud_avec_nom(string& nom, uint32_t debut, uint32_t fin);
 
   public:
 

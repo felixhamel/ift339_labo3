@@ -152,11 +152,11 @@ const uint32_t graphe::obtenir_noeud(string& nom)
 	return trouver_noeud_avec_nom(nom, 0, size()-1);
 }
 
-const uint32_t graphe::trouver_noeud_avec_nom(string& nom, unsigned long int debut, unsigned long int fin)
+const uint32_t graphe::trouver_noeud_avec_nom(string& nom, uint32_t debut, uint32_t fin)
 {
 	// Vérifier si nous avons atteint les limites de notre recherche.
 	if(debut > fin) {
-		return size();
+		return debut;
 	}
 
 	// Établir l'index courant
@@ -168,13 +168,12 @@ const uint32_t graphe::trouver_noeud_avec_nom(string& nom, unsigned long int deb
 
 	// Comparer
 	int comparaison = strcmp(nom.c_str(), noeud.nom.c_str());
-
-	//cout << "Debut = " << debut << " | Fin = " << fin << " | index = " << index << endl;
-	//cout << "Comparer '" << nom << "' avec '" << noeud.nom << "' = " << comparaison << endl;
-
 	if(comparaison == 0) {
 		return index;
 	} else if(comparaison < 0) {
+		if(index == debut) {
+			return debut;
+		}
 		fin = index-1;
 	} else {
 		debut = index+1;
